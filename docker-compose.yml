@@ -1,0 +1,12 @@
+services:
+
+  sftp_php:
+    build:
+      context: .
+    environment:
+      - OPENSSH_PRIVATE_KEY=${OPENSSH_PRIVATE_KEY:-""}
+      - SFTP_HOST=${SFTP_HOST:-"localhost"}
+      - SFTP_USER_NAME=${SFTP_USER_NAME:-"test-user"}
+    command: ["tail", "-f", "/dev/null"]
+    volumes:
+      - ./:/opt/sftp_php
